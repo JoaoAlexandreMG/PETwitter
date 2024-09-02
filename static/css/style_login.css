@@ -1,0 +1,353 @@
+@import url("https://fonts.googleapis.com/css2?family=SUSE:wght@100..800&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #121212; /* Escureci um pouco o fundo */
+  min-height: 100dvh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "SUSE", sans-serif;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  max-width: 1200px;
+  background-color: #1f1f1f; /* Escureci um pouco mais a cor de fundo */
+  border-radius: 12px; /* Aumentei o raio da borda */
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Intensifiquei a sombra */
+}
+
+@media (min-width: 768px) {
+  .content {
+    flex-direction: row;
+  }
+}
+
+.left_content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.left_content img {
+  max-width: 100%;
+  height: auto;
+}
+
+.right_content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 30px; /* Aumentei o padding */
+  color: #e0e0e0; /* Clareiei a cor do texto */
+  text-align: center;
+}
+
+.right_content h1 {
+  font-size: 2.8rem; /* Aumentei um pouco o tamanho da fonte */
+  margin-bottom: 20px;
+}
+
+.right_content h2 {
+  font-size: 1.6rem; /* Aumentei um pouco o tamanho da fonte */
+  margin-bottom: 15px;
+}
+
+.right_content h3 {
+  font-size: 1.1rem; /* Aumentei um pouco o tamanho da fonte */
+  margin-top: 20px;
+}
+
+.right_content p {
+  font-size: 1rem; /* Aumentei um pouco o tamanho da fonte */
+  margin: 20px 0;
+}
+
+.criar_conta {
+  width: 100%;
+  max-width: 280px; /* Aumentei a largura máxima */
+  margin: 20px 0;
+}
+
+.criar_conta button,
+.right_content button {
+  width: 100%;
+  padding: 12px; /* Aumentei o padding */
+  margin: 10px 0; /* Aumentei a margem */
+  border-radius: 30px; /* Aumentei o raio da borda */
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.right_content button:hover {
+  background-color: #333;
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
+}
+
+.criar_conta p {
+  margin-bottom: 10px;
+  color: #bbb; /* Clareei a cor do texto */
+}
+
+@media (max-width: 480px) {
+  .right_content h1 {
+    font-size: 2.2rem; /* Ajustei o tamanho da fonte */
+  }
+
+  .right_content h2 {
+    font-size: 1.4rem; /* Ajustei o tamanho da fonte */
+  }
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Escureci um pouco o fundo */
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.4s;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  padding: 30px; /* Ajuste o padding conforme necessário */
+  border-radius: 15px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 420px; /* Ajuste conforme necessário */
+  max-height: 80vh; /* Ajuste conforme necessário */
+  overflow: auto; /* Adiciona rolagem se o conteúdo ultrapassar a altura máxima */
+  position: relative;
+  animation: slideDown 0.5s;
+}
+
+.modal-content h2 {
+  margin: 0 0 20px; /* Ajuste conforme necessário */
+  font-size: 24px; /* Ajuste conforme necessário */
+  color: #333;
+}
+
+.modal-content label {
+  display: block;
+  margin: 12px 0 6px; /* Ajustei a margem */
+  font-weight: bold;
+  color: #666; /* Escureci um pouco a cor */
+}
+
+.modal-content input[type="text"],
+.modal-content input[type="password"],
+.modal-content input[type="email"],
+.modal-content input[type="file"] {
+  width: 100%;
+  padding: 12px; /* Ajuste conforme necessário */
+  margin-bottom: 15px; /* Ajuste conforme necessário */
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-size: 14px;
+  transition: border-color 0.3s;
+}
+
+.modal-content input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.modal-content button[type="submit"] {
+  width: 100%;
+  padding: 14px; /* Aumentei o padding */
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 10px; /* Aumentei o raio da borda */
+  font-size: 18px; /* Aumentei o tamanho da fonte */
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.modal-content button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+.modal-content .switch {
+  margin-top: 20px; /* Aumentei a margem superior */
+  text-align: center;
+}
+
+.modal-content .switch button {
+  background: none;
+  border: none;
+  color: #007bff;
+  cursor: pointer;
+  font-size: 15px; /* Ajustei o tamanho da fonte */
+  padding: 0;
+  text-decoration: underline;
+}
+
+.close {
+  position: absolute;
+  top: 15px; /* Ajustei a posição */
+  right: 15px;
+  color: #aaa;
+  font-size: 22px; /* Aumentei o tamanho da fonte */
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.close:hover {
+  color: #000;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+/* Estilos para os campos de data de nascimento */
+.input-container {
+  margin-bottom: 18px; /* Aumentei a margem inferior */
+}
+
+.date-inputs {
+  display: flex;
+  flex-direction: column; /* Ajusta a direção para melhor em dispositivos móveis */
+  gap: 12px; /* Aumentei o espaço entre os campos */
+}
+
+.styled-date-select {
+  width: 100%;
+  padding: 12px; /* Aumentei o padding */
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-size: 15px; /* Aumentei o tamanho da fonte */
+}
+
+/* Estilos para o modal de edição de imagem e a área de corte */
+#image-modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+  overflow: auto; /* Adiciona rolagem se necessário */
+}
+
+#image-modal .modal-content {
+  width: 90%;
+  max-width: 800px; /* Aumentei para melhor visualização em telas maiores */
+  max-height: 90vh; /* Ajuste a altura máxima para evitar rolagem excessiva */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px; /* Ajuste conforme necessário */
+  overflow: auto; /* Adiciona rolagem se o conteúdo ultrapassar a altura máxima */
+}
+
+#image-to-crop {
+  max-width: 100%;
+  max-height: 70vh; /* Ajuste para melhor visualização em dispositivos móveis */
+  display: block;
+}
+
+#crop-image {
+  margin-top: 20px;
+  padding: 10px 20px; /* Ajuste o padding conforme necessário */
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px; /* Ajuste conforme necessário */
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#crop-image:hover {
+  background-color: #0056b3;
+}
+
+@media (max-width: 768px) {
+  .content {
+    flex-direction: column;
+  }
+
+  .left_content,
+  .right_content {
+    padding: 15px; /* Ajuste o padding para dispositivos móveis */
+  }
+
+  .right_content h1 {
+    font-size: 2rem; /* Ajustei o tamanho da fonte para dispositivos móveis */
+  }
+
+  .right_content h2 {
+    font-size: 1.2rem; /* Ajustei o tamanho da fonte para dispositivos móveis */
+  }
+
+  .right_content p {
+    font-size: 0.9rem; /* Ajustei o tamanho da fonte para dispositivos móveis */
+  }
+
+  .criar_conta {
+    max-width: 100%;
+  }
+
+  .modal-content {
+    width: 100%;
+    max-width: none; /* Remove a largura máxima para telas menores */
+    padding: 10px; /* Ajuste o padding conforme necessário */
+  }
+
+  #image-modal .modal-content {
+    max-width: 100%;
+    padding: 10px; /* Ajuste o padding conforme necessário */
+  }
+
+  #image-to-crop {
+    max-height: 60vh; /* Ajuste para melhor visualização em dispositivos móveis */
+  }
+}

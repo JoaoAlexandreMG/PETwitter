@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/static/css/style_login.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.js"></script>
+    <title>PETwitter</title>
+  </head>
+  <body>
+    <div class="content">
+      <div class="left_content">
+        <img src="/static/img/logo_login.png" alt="Logo PET" />
+      </div>
+      <div class="right_content">
+        <h1>Inscreva-se hoje</h1>
+        <div class="criar_conta">
+          <button id="createAccountBtn">Criar Conta</button>
+        </div>
+        <p>
+          Ao se inscrever, você concorda com os Termos de Serviço e a Política
+          de Privacidade, incluindo o Uso de Cookies.
+        </p>
+        <h3>Já tem uma conta?</h3>
+        <button id="loginBtn">Login</button>
+      </div>
+    </div>
+
+    <!-- Popup de Login -->
+    <div id="modalLogin" class="modal">
+      <div class="modal-content">
+        <span class="close" id="closeLogin">&times;</span>
+        <h2>Login</h2>
+        <form action="/login" method="post">
+          <label for="login-username">Nome de Usuário:</label>
+          <input
+            type="text"
+            id="login-username"
+            name="login-username"
+            placeholder="Seu nome de usuário"
+            required
+          />
+          <label for="login-password">Senha:</label>
+          <input
+            type="password"
+            id="login-password"
+            name="login-password"
+            placeholder="Sua senha"
+            required
+          />
+          <button type="submit">Entrar</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Popup de Criar Conta -->
+    <div id="modalCreateAccount" class="modal">
+      <div class="modal-content">
+        <span class="close" id="closeCreateAccount">&times;</span>
+        <h2>Criar Conta</h2>
+        <form
+          id="registration-form"
+          action="/create_account"
+          method="post"
+          enctype="multipart/form-data"
+        >
+          <div class="form-group">
+            <label for="create-name">Nome completo:</label>
+            <input
+              type="text"
+              id="create-name"
+              name="create-name"
+              placeholder="Seu nome completo"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="create-username">Nome de Usuário:</label>
+            <input
+              type="text"
+              id="create-username"
+              name="create-username"
+              placeholder="Seu nome de usuário"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="create-email">Email:</label>
+            <input
+              type="email"
+              id="create-email"
+              name="create-email"
+              placeholder="Seu email"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="create-password">Senha:</label>
+            <input
+              type="password"
+              id="create-password"
+              name="create-password"
+              placeholder="Sua senha"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="birthdate">Data de Nascimento:</label>
+            <div class="date-inputs">
+              <select id="dia" name="dia" class="styled-date-select">
+                <option value="" disabled selected>Dia</option>
+                <!-- Gerar opções de 1 a 31 -->
+              </select>
+              <select id="mes" name="mes" class="styled-date-select">
+                <option value="" disabled selected>Mês</option>
+                <option value="1">Janeiro</option>
+                <option value="2">Fevereiro</option>
+                <option value="3">Março</option>
+                <option value="4">Abril</option>
+                <option value="5">Maio</option>
+                <option value="6">Junho</option>
+                <option value="7">Julho</option>
+                <option value="8">Agosto</option>
+                <option value="9">Setembro</option>
+                <option value="10">Outubro</option>
+                <option value="11">Novembro</option>
+                <option value="12">Dezembro</option>
+              </select>
+              <select id="ano" name="ano" class="styled-date-select">
+                <option value="" disabled selected>Ano</option>
+                <!-- Gerar opções de 1904 a 2024 -->
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="photo">Foto de Perfil:</label>
+            <input type="file" id="photo" name="photo" accept="image/*" />
+          </div>
+          <button type="submit">Cadastrar</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Modal para edição da imagem -->
+    <div id="image-modal" class="modal">
+      <div class="modal-content">
+        <span class="close" id="closeImageModal">&times;</span>
+        <h2>Editar Imagem</h2>
+        <div>
+          <img id="image-to-crop" src="" alt="Imagem para cortar" />
+        </div>
+        <button id="crop-image">Aplicar Corte</button>
+      </div>
+    </div>
+
+    <script src="/static/script/script_login.js"></script>
+  </body>
+</html>

@@ -1,0 +1,376 @@
+/* Estilos Gerais */
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f8fa;
+  margin: 0;
+  padding: 0;
+  color: #14171a;
+}
+
+.header {
+  background-color: #1da1f2;
+  color: white;
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header-content h1 {
+  font-size: 28px;
+  margin: 0;
+  flex: 1;
+}
+
+.navbar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 20px;
+}
+
+.navbar ul li {
+  margin: 0;
+}
+
+.navbar ul li a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  padding: 8px 16px;
+  border-radius: 20px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar ul li a:hover {
+  background-color: #e6ecf0;
+  color: #1da1f2;
+}
+
+.logout {
+  margin-left: 20px;
+}
+
+.logout-button {
+  color: white;
+  background-color: #ff4d4d;
+  padding: 8px 16px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  display: inline-block;
+  text-align: center;
+  font-size: 14px;
+}
+
+.logout-button:hover {
+  background-color: #e60000;
+}
+
+/* Estilos Responsivos */
+@media (max-width: 600px) {
+  .navbar ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .tweet-box,
+  .feed {
+    width: 95%;
+  }
+
+  .tweet-header .avatar {
+    width: 40px;
+    height: 40px;
+  }
+
+  .header-content h1 {
+    font-size: 20px;
+  }
+}
+
+.tweet-box {
+  background-color: white;
+  padding: 20px;
+  margin: 20px auto;
+  border-radius: 15px;
+  width: 100%;
+  max-width: 600px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.tweet-box textarea {
+  width: 95%;
+  padding: 12px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccd6dd;
+  resize: none;
+  font-size: 14px;
+  line-height: 1.5;
+  transition: border-color 0.3s ease;
+}
+
+.tweet-box textarea:focus {
+  border-color: #1da1f2;
+  outline: none;
+}
+
+.tweet-box .tweet-button {
+  background-color: #1da1f2;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.tweet-box .tweet-button:hover {
+  background-color: #1a91da;
+}
+
+.feed {
+  width: 90%;
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+.tweet {
+  background-color: white;
+  margin-bottom: 20px;
+  padding: 15px;
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tweet:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.tweet-header {
+  display: flex;
+  align-items: center;
+}
+
+.tweet-header .avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+  border: 2px solid #e6ecf0;
+}
+.delete-button {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  border: 2px solid rgb(231, 50, 50);
+  background-color: #fff;
+  cursor: pointer;
+  box-shadow: 0 0 10px #333;
+  overflow: hidden;
+  transition: 0.3s;
+}
+.delete-button:hover {
+  background-color: rgb(245, 207, 207);
+  transform: scale(1.2);
+  box-shadow: 0 0 4px #111;
+  transition: 0.3s;
+}
+.delete-button svg {
+  color: rgb(231, 50, 50);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: 0.3s;
+}
+.delete-button:focus svg {
+  opacity: 0;
+  transition: 0.3s;
+}
+.delete-button span {
+  width: 150px;
+  position: absolute;
+  opacity: 0;
+  transform: translate(-50%, -50%);
+  color: rgb(231, 50, 50);
+  font-weight: 600;
+  transition: 0.3s;
+}
+.delete-button:focus {
+  width: 150px;
+  height: 50px;
+  transition: 0.3s;
+}
+.delete-button:focus span {
+  opacity: 1;
+  transition: 0.3s;
+}
+
+.tweet-header strong {
+  font-size: 16px;
+}
+
+.tweet-actions {
+  display: flex;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.tweet-actions button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: #1da1f2;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.tweet-actions button:hover {
+  color: #0c85d0;
+}
+
+/* Estilos para o Modal de Edição de Perfil */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 15% auto;
+  padding: 20px;
+  border-radius: 15px;
+  width: 80%;
+  max-width: 600px;
+  position: relative;
+}
+
+.close-button {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close-button:hover,
+.close-button:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.profile-edit-container h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #14171a;
+}
+
+.profile-edit-container .form-group {
+  margin-bottom: 15px;
+}
+
+.profile-edit-container .form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #1da1f2;
+}
+
+.profile-edit-container .form-group input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccd6dd;
+  font-size: 14px;
+}
+
+.profile-edit-container .save-button {
+  background-color: #1da1f2;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.profile-edit-container .save-button:hover {
+  background-color: #1a91da;
+}
+
+#profile-photo {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.tweet-img {
+  width: 100px; /* Defina uma largura fixa */
+  height: 100px; /* Defina uma altura fixa igual à largura */
+  object-fit: cover; /* Garante que a imagem cubra o container sem distorcer */
+  border-radius: 50%; /* Faz com que a imagem seja redonda */
+  display: block; /* Remove qualquer espaço extra embaixo da imagem */
+  margin-top: 10px; /* Adicione uma margem acima, se necessário */
+}
+/* Adicione esta seção ao seu arquivo style_feed.css */
+#crop-modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+}
+
+#crop-modal .modal-content {
+  width: 90%;
+  max-width: 600px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+#image-to-crop {
+  max-width: 100%;
+  height: auto;
+}
+
+#crop-image {
+  margin-top: 20px;
+}

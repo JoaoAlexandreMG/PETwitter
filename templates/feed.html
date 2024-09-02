@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Cropper.js CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css"
+      rel="stylesheet"
+    />
+    <!-- Cropper.js JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"></script>
+    <title>PETwitter Feed</title>
+    <link rel="stylesheet" href="/static/css/style_feed.css" />
+  </head>
+  <body>
+    <!-- Cabeçalho -->
+    <header class="header">
+      <div class="header-content">
+        <h1>PETwitter</h1>
+        <nav class="navbar">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li>
+              <a href="#profile-modal" class="edit-profile-button"
+                >Editar Perfil</a
+              >
+            </li>
+          </ul>
+        </nav>
+        <div class="logout">
+          <a href="/logout" class="logout-button">Sair</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Popup de edição de perfil -->
+    <div id="profile-modal" class="modal">
+      <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <form
+          id="profileForm"
+          enctype="multipart/form-data"
+          class="profile-edit-container"
+        >
+          <h2>Editar Perfil</h2>
+          <div class="form-group">
+            <img
+              id="profile-photo"
+              src="/static/img/default_avatar.jpg"
+              alt="Foto de Perfil"
+            />
+            <input type="file" id="profile-picture" name="profile-picture" />
+          </div>
+
+          <div class="form-group">
+            <label for="username">Nome de Usuário:</label>
+            <input type="text" id="username" name="username" />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" />
+          </div>
+
+          <div class="form-group">
+            <label for="current-password">Senha Atual:</label>
+            <input
+              type="password"
+              id="current-password"
+              name="current-password"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="new-password">Nova Senha:</label>
+            <input type="password" id="new-password" name="new-password" />
+          </div>
+
+          <button type="submit" class="save-button">Salvar</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Popup de edição de imagem -->
+    <div id="crop-modal" class="modal">
+      <div class="modal-content">
+        <span class="close-button" id="close-crop">&times;</span>
+        <div class="crop-container">
+          <img id="image-to-crop" />
+        </div>
+        <button id="crop-image" class="crop-button">Aplicar Corte</button>
+      </div>
+    </div>
+
+    <!-- Área de publicação de tweets -->
+    <div class="tweet-box">
+      <form id="tweetForm" method="post">
+        <textarea
+          id="tweet-text"
+          name="tweet-text"
+          rows="3"
+          placeholder="Escreva seu tweet..."
+        ></textarea>
+        <button type="submit" class="tweet-button">Tweetar</button>
+      </form>
+    </div>
+
+    <!-- Feed de Tweets -->
+    <div id="feed" class="feed">
+      <!-- Os tweets serão carregados aqui dinamicamente -->
+    </div>
+
+    <script id="tweets-data" type="application/json">
+      {{ tweets | tojson }}
+    </script>
+    <script id="current-user-id" type="application/json">
+      {{ current_user_id | tojson }}
+    </script>
+
+    <script src="/static/script/script_feed.js"></script>
+  </body>
+</html>
