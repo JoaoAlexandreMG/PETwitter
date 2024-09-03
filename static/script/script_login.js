@@ -85,3 +85,23 @@ cropImageButton.addEventListener("click", function () {
     }, "image/jpeg");
   }
 });
+document.addEventListener("DOMContentLoaded", function () {
+  // Preenche o seletor de dias (1 a 31)
+  const diaSelect = document.getElementById("dia");
+  for (let i = 1; i <= 31; i++) {
+    const option = document.createElement("option");
+    option.value = i;
+    option.text = i;
+    diaSelect.appendChild(option);
+  }
+
+  // Preenche o seletor de anos (1904 a 2024)
+  const anoSelect = document.getElementById("ano");
+  const currentYear = new Date().getFullYear();
+  for (let i = currentYear; i >= 1904; i--) {
+    const option = document.createElement("option");
+    option.value = i;
+    option.text = i;
+    anoSelect.appendChild(option);
+  }
+});
